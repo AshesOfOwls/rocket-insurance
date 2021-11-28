@@ -1,0 +1,15 @@
+.button {
+  border-radius: 3px;
+  color: white;
+  border: none;
+  padding: 4px 7px;
+  outline: 0;
+}
+
+.primary {
+  background: blue;
+}
+
+.secondary {
+  background: red;
+}
