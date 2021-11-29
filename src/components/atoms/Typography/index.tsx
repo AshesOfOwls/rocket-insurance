@@ -8,14 +8,16 @@ export interface BaseTextProps {
   children: React.ReactNode
   bold?: boolean
   uppercase?: boolean
+  style?: any
 }
 
 const BaseText = (props: BaseTextProps) => {
-  const { Element = 'p', children, bold, uppercase, textType = 'body' } = props;
+  const { Element = 'p', children, bold, uppercase, textType = 'body', style } = props;
 
   return (
     <Element
       className={classnames([s[textType]], { [s.bold]: bold, [s.uppercase]: uppercase })}
+      style={style}
     >
       { children }
     </Element>

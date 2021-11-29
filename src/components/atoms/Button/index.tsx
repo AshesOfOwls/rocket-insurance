@@ -7,6 +7,7 @@ export interface ButtonProps {
   onClick(): void,
   children: React.ReactNode,
   buttonType?: 'primary' | 'secondary',
+  size?: 'small' | 'medium',
 }
 
 const Button = (props: ButtonProps) => {
@@ -14,13 +15,14 @@ const Button = (props: ButtonProps) => {
     children,
     onClick,
     buttonType = 'primary',
+    size = 'medium',
   } = props;
 
   return (
     <button
       onClick={onClick}
       type="button"
-      className={classnames(s.button, s[buttonType])}
+      className={classnames(s.button, s[buttonType], s[size])}
     >
       <ButtonText>{ children }</ButtonText>
     </button>

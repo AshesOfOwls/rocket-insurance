@@ -2,7 +2,7 @@
   border-radius: 3px;
   color: white;
   border: none;
-  padding: 4px 14px;
+  padding: 8px 12px;
   outline: 0;
   cursor: pointer;
 }
@@ -17,4 +17,8 @@
 
 .secondary {
   background: red;
+}
+
+.small {
+  padding: 4px 8px;
 }

@@ -18,6 +18,13 @@ Primary.args = {
   buttonType: 'primary',
 };
 
+export const Small = Template.bind({});
+Small.args = {
+  children: 'Click me',
+  size: 'small',
+};
+
+
 export const Secondary = Template.bind({});
 Secondary.args = {
   children: 'Click me',

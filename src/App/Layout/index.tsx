@@ -1,11 +1,13 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import StyleProvider from 'App/StyleProvider';
+import Header from './Header';
+
 
 export interface LayoutProps {}
 
 const Layout = (props: LayoutProps) => (
   <StyleProvider>
-    <Link to="/rating">Rating Information</Link>
+    <Header />
 
     <Outlet />
   </StyleProvider>
