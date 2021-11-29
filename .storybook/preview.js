@@ -7,3 +7,9 @@ export const parameters = {
     },
   },
 }
+
+import StyleProvider from 'App/StyleProvider';
+
+export const decorators = [
+  (Story) => <StyleProvider><Story /></StyleProvider>,
+];

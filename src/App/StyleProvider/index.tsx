@@ -1,4 +1,5 @@
 import './variables.css';
+import './fonts.css';
 
 export interface StyleProviderProps {
   children: React.ReactNode,
