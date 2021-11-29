@@ -4,6 +4,7 @@ import { useRoutes /*, useParams*/ } from "react-router-dom";
 
 import Layout from 'App/Layout';
 import Home from 'routes/Home';
+import RatingInformation from 'routes/RatingInformation';
 
 const routes: RouteObject[] = [
   {
@@ -20,7 +21,7 @@ const routes: RouteObject[] = [
     children: [
       {
         path: '/rating',
-        element: <div>Rating Information</div>,
+        element: <RatingInformation />,
       },
     ]
   }

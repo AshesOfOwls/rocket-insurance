@@ -9,12 +9,20 @@ const CREATE_QUOTE = gql`
     postal: String
   }
 
-  fragment QuoteInput on REST { 
+  fragment PolicyHolder on any {
     last_name: String
     first_name: String
+  }
+
+  fragment QuoteInput on REST {
+    ...PolicyHolder
     address {
       ...Address
     }
+  }
+
+  fragment QuoteParts on Quote {
+    quoteId
   }
 
   mutation CreateQuote($input: QuoteInput!) {
@@ -23,9 +31,7 @@ const CREATE_QUOTE = gql`
         type: "Quote",
         path: "/quotes"
       ) {
-      quote {
-        quoteId
-      }
+      ...QuoteParts
     }
   }
 `;
