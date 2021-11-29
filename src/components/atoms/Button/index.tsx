@@ -1,6 +1,8 @@
 import s from './Button.module.css';
 import classnames from 'classnames';
 
+import { Body } from 'components/atoms/Typography';
+
 export interface ButtonProps {
   onClick(): void,
   children: React.ReactNode,
@@ -20,7 +22,7 @@ const Button = (props: ButtonProps) => {
       type="button"
       className={classnames(s.button, s[buttonType])}
     >
-      { children }
+      <Body>{ children }</Body>
     </button>
   );
 }
