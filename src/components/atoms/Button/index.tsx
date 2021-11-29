@@ -1,7 +1,7 @@
 import s from './Button.module.css';
 import classnames from 'classnames';
 
-import { Body } from 'components/atoms/Typography';
+import { ButtonText } from 'components/atoms/Typography';
 
 export interface ButtonProps {
   onClick(): void,
@@ -22,7 +22,7 @@ const Button = (props: ButtonProps) => {
       type="button"
       className={classnames(s.button, s[buttonType])}
     >
-      <Body>{ children }</Body>
+      <ButtonText>{ children }</ButtonText>
     </button>
   );
 }

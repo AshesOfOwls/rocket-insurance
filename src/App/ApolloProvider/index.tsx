@@ -9,7 +9,7 @@ export interface ApolloProviderProps {
   children: React.ReactNode,
 }
 const restLink = new RestLink({
-  uri: 'https://fed-challenge-api.sure.now.sh/api/v1',
+  uri: 'https://fed-challenge-api.sure.now.sh/api/v1'
 });
 
 const client = new ApolloClient({

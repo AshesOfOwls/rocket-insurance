@@ -64,7 +64,7 @@ const ButtonText = (props: BaseTextProps) => {
   const { children, ...otherProps } = props;
   
   return (
-    <BaseText Element='p' {...otherProps} textType="buttonText">
+    <BaseText Element='p' {...otherProps} textType="buttonText" bold>
       { children }
     </BaseText>
   );

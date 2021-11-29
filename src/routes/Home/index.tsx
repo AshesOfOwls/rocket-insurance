@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import Button from 'components/atoms/Button';
+import { H1, H4 } from 'components/atoms/Typography';
 import CREATE_QUOTE from 'hooks/mutations/quotes/create/mutation';
 
 import logo from './logo.svg';
@@ -40,11 +41,13 @@ const Home = (props: HomeProps) => {
   
   return (
     <div className={s.home}>
+      <H1>Rocket Insurance</H1>
       <img src={logo} className={s.appLogo} alt="logo" />
+      <H4>Sometimes Newton happens. Sign up now!</H4>
       <p>
-        <Button onClick={() => navigate('/rating')}>Blast off!</Button>
+        <Button onClick={() => navigate('/rating')}>BLAST OFF!</Button>
 
-        <Button onClick={handleCreateQuote}>CREATE A QUOTE</Button>
+        {/* <Button onClick={handleCreateQuote}>CREATE A QUOTE</Button> */}
       </p>
     </div>
   );

@@ -2,12 +2,17 @@
   border-radius: 3px;
   color: white;
   border: none;
-  padding: 4px 7px;
+  padding: 4px 14px;
   outline: 0;
+  cursor: pointer;
 }
 
 .primary {
-  background: blue;
+  background: var(--sureBlue1);
+}
+
+.primary:hover {
+  background: var(--sureBlue2);
 }
 
 .secondary {
