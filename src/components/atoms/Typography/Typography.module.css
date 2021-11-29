@@ -1,3 +1,43 @@
+.body {
+  font-size: 13px;
+}
+
+.labelText {
+  font-size: 10px;
+}
+
+.buttonText {
+  font-size: 13px;
+}
+
+.small {
+  font-size: 11px;
+}
+
+.h1 {
+  font-size: 48px;
+}
+
+.h2 {
+  font-size: 36px;
+}
+
+.h3 {
+  font-size: 24px;
+}
+
+.h4 {
+  font-size: 18px;
+}
+
+.h5 {
+  font-size: 14px;
+}
+
 .bold {
   font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
