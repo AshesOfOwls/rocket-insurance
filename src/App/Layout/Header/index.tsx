@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import logo from 'routes/Home/logo.svg';
 import { H5 } from 'components/atoms/Typography';
 import Button from 'components/atoms/Button';
