@@ -6,7 +6,7 @@ import { Body } from 'components/atoms/Typography';
 export interface ButtonProps {
   onClick(): void,
   children: React.ReactNode,
-  buttonType: 'primary' | 'secondary',
+  buttonType?: 'primary' | 'secondary',
 }
 
 const Button = (props: ButtonProps) => {
