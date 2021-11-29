@@ -1,8 +1,17 @@
 import Button from 'components/atoms/Button';
 import CREATE_QUOTE from 'hooks/mutations/quotes/create/mutation';
 import { useMutation } from "@apollo/react-hooks";
+import { gql } from '@apollo/client';
 
 export interface RatingInformationProps {}
+
+const QUOTES_QUERY = gql`
+  query Quotes {
+    quotes {
+      quoteId
+    }
+  }
+`
 
 const RatingInformation = (props: RatingInformationProps) => {
   const [createQuote, { loading, error }] = useMutation(CREATE_QUOTE, {
@@ -11,7 +20,14 @@ const RatingInformation = (props: RatingInformationProps) => {
 
       const quote = data.createQuote;
 
-      console.log(quote)
+      const cachedData = cache.readQuery<any>({
+        query: QUOTES_QUERY,
+      }) || { quotes: [] };
+
+      cache.writeQuery({
+        query: QUOTES_QUERY,
+        data: { quotes: [...cachedData.quotes, quote] },
+      });
     },
   });
 
