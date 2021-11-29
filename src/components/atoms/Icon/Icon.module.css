@@ -1,0 +1,25 @@
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+}
+
+.small {
+  font-size: 12px;
+  height: 16px;
+  width: 16px
+}
+
+.medium {
+  font-size: 24px;
+  height: 32px;
+  width: 32px;
+}
+
+.large {
+  font-size: 50px;
+  height: 64px;
+  width: 64px;
+}
