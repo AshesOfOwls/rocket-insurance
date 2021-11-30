@@ -1,4 +1,3 @@
-import Button from 'components/atoms/Button';
 import useQuotes from 'data/hooks/queries/quotes'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { H3 } from 'components/atoms/Typography';
@@ -19,9 +18,7 @@ const RatingInformation = (props: RatingInformationProps) => {
       <Grid>
         <Row>
           <Col xs={8}>
-            <H3>
-              Active Quotes: 
-            </H3>
+            <H3>Active Quotes:</H3>
           </Col>
           <Col xs={4} className={s.createQuoteButton}>
             <CreateQuoteButtonModal />
