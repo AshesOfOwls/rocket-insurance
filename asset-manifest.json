@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/AshesOfOwls/rocket-insurance/static/css/main.882ebd36.chunk.css",
+    "main.js": "/AshesOfOwls/rocket-insurance/static/js/main.dec4ed01.chunk.js",
+    "main.js.map": "/AshesOfOwls/rocket-insurance/static/js/main.dec4ed01.chunk.js.map",
+    "runtime-main.js": "/AshesOfOwls/rocket-insurance/static/js/runtime-main.e0920ebe.js",
+    "runtime-main.js.map": "/AshesOfOwls/rocket-insurance/static/js/runtime-main.e0920ebe.js.map",
+    "static/css/2.4ee2f7a8.chunk.css": "/AshesOfOwls/rocket-insurance/static/css/2.4ee2f7a8.chunk.css",
+    "static/js/2.faf97aa3.chunk.js": "/AshesOfOwls/rocket-insurance/static/js/2.faf97aa3.chunk.js",
+    "static/js/2.faf97aa3.chunk.js.map": "/AshesOfOwls/rocket-insurance/static/js/2.faf97aa3.chunk.js.map",
+    "static/js/3.64a33699.chunk.js": "/AshesOfOwls/rocket-insurance/static/js/3.64a33699.chunk.js",
+    "static/js/3.64a33699.chunk.js.map": "/AshesOfOwls/rocket-insurance/static/js/3.64a33699.chunk.js.map",
+    "index.html": "/AshesOfOwls/rocket-insurance/index.html",
+    "static/css/2.4ee2f7a8.chunk.css.map": "/AshesOfOwls/rocket-insurance/static/css/2.4ee2f7a8.chunk.css.map",
+    "static/css/main.882ebd36.chunk.css.map": "/AshesOfOwls/rocket-insurance/static/css/main.882ebd36.chunk.css.map",
+    "static/js/2.faf97aa3.chunk.js.LICENSE.txt": "/AshesOfOwls/rocket-insurance/static/js/2.faf97aa3.chunk.js.LICENSE.txt",
+    "static/media/logo.838f9047.svg": "/AshesOfOwls/rocket-insurance/static/media/logo.838f9047.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e0920ebe.js",
+    "static/css/2.4ee2f7a8.chunk.css",
+    "static/js/2.faf97aa3.chunk.js",
+    "static/css/main.882ebd36.chunk.css",
+    "static/js/main.dec4ed01.chunk.js"
+  ]
+}
