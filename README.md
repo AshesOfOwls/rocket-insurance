@@ -1,3 +1,37 @@
+# Rocket Insurance
+
+## Getting started
+
+## Set up Google API Env Variable
+In order to run this project fully, you need a google api key.
+
+1. Obtain key at https://console.cloud.google.com/
+1. Duplicate .env_EXAMPLE to make the regular .env file
+1. Add key to `GOOGLE_API_KEY=`
+
+## Start the project
+
+This project was created with CRA. You can simply...
+
+### `yarn`
+### `yarn start`
+
+## Run Tests
+
+### `yarn test`
+
+## Deploy
+
+You must have access to my gh-pages to deploy currently
+
+### `yarn deploy`
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
