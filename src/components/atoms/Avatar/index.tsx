@@ -16,7 +16,7 @@ const Avatar = (props: AvatarProps) => {
   });
 
   const firstInitial = firstName[0];
-  const lastInitial = firstName[0];
+  const lastInitial = lastName[0];
 
   return (
     <div

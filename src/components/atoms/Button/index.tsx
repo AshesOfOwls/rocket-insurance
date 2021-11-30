@@ -23,13 +23,11 @@ const Button = (props: ButtonProps) => {
     loading,
   } = props;
 
-  console.log("SPin?", loading)
-  
   return (
     <button
       onClick={onClick}
       type="button"
-      className={classnames(s.button, s[buttonType], s[size])}
+      className={classnames(s.button, s[buttonType], s[size], { [s.disabled]: disabled })}
       disabled={disabled}
     >
       <ButtonText>{!loading ? children : <Icon name="spinner" size="small" spin /> }</ButtonText>

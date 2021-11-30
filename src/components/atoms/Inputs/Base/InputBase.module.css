@@ -1,3 +1,7 @@
+.inputWrapper {
+  margin: 3px 0 8px;
+}
+
 .input {
   border-radius: 3px;
   background: none;
