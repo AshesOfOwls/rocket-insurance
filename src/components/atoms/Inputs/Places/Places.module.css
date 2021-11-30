@@ -1,0 +1,16 @@
+.placesWrapper {
+  position: relative;
+}
+
+.autocompleteDropdownContainer {
+  padding: 5px;
+  border: 1px solid var(--grey1);
+  background: var(--grey3);
+  position: absolute;
+  min-width: 100%;
+  margin-top: -1px;
+  top: 100%;
+  left: 2px;
+  z-index: 5;
+  white-space: nowrap;
+}

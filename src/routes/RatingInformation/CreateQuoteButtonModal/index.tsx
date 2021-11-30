@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import useCreateQuote from 'data/hooks/mutations/createQuote';
 import Button from 'components/atoms/Button';
 import TextInput from 'components/atoms/Inputs/Text';
+import PlacesInput from 'components/atoms/Inputs/Places';
 import { H3 } from 'components/atoms/Typography';
 
 export interface CreateQuoteButtonModalProps {}
@@ -11,6 +12,8 @@ const CreateQuoteButtonModal = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [firstName, setFirstName] = useState('Jack');
   const [lastName, setLastName] = useState('Sparrow');
+  const [address, setAddress] = useState('');
+  const [parsedAddress, setParsedAddress] = useState(null);
 
   const closeModal = () => {
     setQuoteModalOpen(false);
@@ -23,17 +26,21 @@ const CreateQuoteButtonModal = () => {
   const [createQuote, { loading }] = useCreateQuote(onQuoteCreated);
 
   const handleCreateQuote = () => {
+    if (!parsedAddress) return;
+
+    const { line_1, line_2, city, region, postal } = parsedAddress;
+
     createQuote({
       variables: {
         input: {
           first_name: firstName,
           last_name: lastName,
           address: {
-            line_1: "123 Mulberry Lane",
-            line_2: "3B",
-            city: "Brooklyn",
-            region: "NY",
-            postal: "11211"
+            line_1,
+            line_2,
+            city,
+            region,
+            postal,
           }
         }
       }
@@ -58,23 +65,34 @@ const CreateQuoteButtonModal = () => {
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
+            overflow: 'visible',
           }
         }}
       >
         <H3 style={{ marginBottom: 20 }}>Create a Quote</H3>
         <TextInput
           label="First Name"
-          onChange={(e, name) => setFirstName(name)}
+          onInputChange={(e, name) => setFirstName(name)}
           value={firstName}
         />
         <TextInput
           label="Last Name"
-          onChange={(e, name) => setLastName(name)}
+          onInputChange={(e, name) => setLastName(name)}
           value={lastName}
+        />
+        <PlacesInput
+          onSelect={(parsedAddress, addressNormal) => {
+            setAddress(addressNormal);
+            setParsedAddress(parsedAddress);
+          }}
+          onChange={() => {
+            setParsedAddress(null)
+            setAddress('')
+          }}
         />
         <Button
           onClick={handleCreateQuote}
-          disabled={loading || !firstName || !lastName}
+          disabled={loading || !firstName || !lastName || !address}
           loading={loading}
         >
           Create

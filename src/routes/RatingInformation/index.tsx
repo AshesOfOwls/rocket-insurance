@@ -10,7 +10,6 @@ import s from './RatingInformation.module.css';
 export interface RatingInformationProps {}
 
 const RatingInformation = (props: RatingInformationProps) => {
-
   const quotes = useQuotes();
 
   return (

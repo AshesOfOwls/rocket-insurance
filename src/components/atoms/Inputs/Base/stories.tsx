@@ -6,7 +6,7 @@ export default {
   title: 'Atoms/Input',
   component: Input,
   argTypes: {
-    onChange: { action: 'Changed' }
+    onInputChange: { action: 'Changed' }
   }
 } as ComponentMeta<typeof Input>;
 

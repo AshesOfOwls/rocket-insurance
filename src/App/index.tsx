@@ -4,7 +4,6 @@ import RouterElement from 'App/Router';
 import s from './App.module.css';
 
 export default function App() {
-  console.log("Hrm", process.env)
   useEffect(() => {
     const googleMapScript = document.createElement('script');
     googleMapScript.src=`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`;

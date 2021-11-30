@@ -1,20 +1,22 @@
 import InputLabel from 'components/atoms/Inputs/Label';
 import s from './InputBase.module.css';
 import classnames from 'classnames';
+import { InputHTMLAttributes } from 'react';
 
-export interface InputBaseProps {
-  value: string | number,
+export interface InputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
+  value?: string | number,
   type?: string,
-  onChange(e: React.FormEvent<HTMLInputElement>, val: string): void,
+  onInputChange?(e: React.FormEvent<HTMLInputElement>, val: string): void,
   disabled?: boolean,
   label?: string,
 }
 
 const InputBase = (props: InputBaseProps) => {
-  const { value, onChange, type, disabled, label } = props;
+  const { value, onChange, onInputChange, type, disabled, label, ...otherProps } = props;
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    onChange(e, e.currentTarget.value);
+    if(!onInputChange) return;
+    onInputChange(e, e.currentTarget.value);
   };
 
   return (
@@ -23,9 +25,10 @@ const InputBase = (props: InputBaseProps) => {
       <input
         className={classnames(s.input)}
         value={value}
-        onChange={handleChange}
+        onChange={onChange || handleChange}
         type={type}
         disabled={disabled}
+        {...otherProps}
       />
     </div>
   );

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import s from './Typography.module.css';
 
 export interface BaseTextProps {
-  Element?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
+  Element?: 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   textType?: 'small' | 'labelText' | 'body' | 'buttonText' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5'
   children: React.ReactNode
   bold?: boolean
@@ -12,7 +12,7 @@ export interface BaseTextProps {
 }
 
 const BaseText = (props: BaseTextProps) => {
-  const { Element = 'p', children, bold, uppercase, textType = 'body', style } = props;
+  const { Element = 'div', children, bold, uppercase, textType = 'body', style } = props;
 
   return (
     <Element
@@ -30,7 +30,7 @@ const Body = (props: BaseTextProps) => {
   const { children, ...otherProps } = props;
   
   return (
-    <BaseText Element='p' {...otherProps} textType="body">
+    <BaseText Element='div' {...otherProps} textType="body">
       { children }
     </BaseText>
   );
@@ -42,7 +42,7 @@ const LabelText = (props: BaseTextProps) => {
   const { children, ...otherProps } = props;
   
   return (
-    <BaseText Element='p' {...otherProps} textType="labelText">
+    <BaseText Element='div' {...otherProps} textType="labelText" uppercase>
       { children }
     </BaseText>
   );
@@ -54,7 +54,7 @@ const Small = (props: BaseTextProps) => {
   const { children, ...otherProps } = props;
   
   return (
-    <BaseText Element='p' {...otherProps} textType="small">
+    <BaseText Element='div' {...otherProps} textType="small">
       { children }
     </BaseText>
   );
@@ -66,7 +66,7 @@ const ButtonText = (props: BaseTextProps) => {
   const { children, ...otherProps } = props;
   
   return (
-    <BaseText Element='p' {...otherProps} textType="buttonText" bold>
+    <BaseText Element='div' {...otherProps} textType="buttonText" bold>
       { children }
     </BaseText>
   );

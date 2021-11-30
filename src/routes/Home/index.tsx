@@ -16,7 +16,7 @@ const Home = (props: HomeProps) => {
       <H1>Rocket Insurance</H1>
       <H5 style={{ margin: '15px 0' }}>A project by Quinn Elwood</H5>
       <img src={logo} className={s.appLogo} alt="logo" />
-      <H4 style={{ margin: '15px 0' }}>Sometimes Newton happens. Sign up now!</H4>
+      <H4 style={{ margin: '15px 0 20px' }}>Sometimes Newton happens. Get a quote now!</H4>
       <Button onClick={() => navigate('/rating')}>BLAST OFF!</Button>
     </div>
   );
