@@ -7,16 +7,18 @@ import s from './Icon.module.css';
 export interface IconProps {
   name: typeof Icons[number],
   size: 'small' | 'medium' | 'large',
+  spin?: boolean,
 }
 
 const Icon = (props: IconProps) => {
   const {
     name = 'check-square',
     size = 'medium',
+    spin,
   } = props;
 
   return (
-    <div className={classnames(s.icon, s[size])}>
+    <div className={classnames(s.icon, s[size], { [s.spin]: spin })}>
       <FontAwesomeIcon icon={name} />
     </div>
   );
