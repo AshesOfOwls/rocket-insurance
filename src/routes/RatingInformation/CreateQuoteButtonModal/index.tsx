@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import useCreateQuote from 'data/hooks/mutations/createQuote';
 import Button from 'components/atoms/Button';
 import TextInput from 'components/atoms/Inputs/Text';
+import { H3 } from 'components/atoms/Typography';
 
 export interface CreateQuoteButtonModalProps {}
 
@@ -49,7 +50,18 @@ const CreateQuoteButtonModal = () => {
       <Modal
         isOpen={quoteModalOpen}
         onRequestClose={closeModal}
+        style={{
+          content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+          }
+        }}
       >
+        <H3 style={{ marginBottom: 20 }}>Create a Quote</H3>
         <TextInput
           label="First Name"
           onChange={(e, name) => setFirstName(name)}
