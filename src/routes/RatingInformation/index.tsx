@@ -1,35 +1,15 @@
 import Button from 'components/atoms/Button';
-import CREATE_QUOTE from 'hooks/mutations/quotes/create/mutation';
-import { useMutation } from "@apollo/react-hooks";
-import { gql } from '@apollo/client';
+import useCreateQuote from 'data/hooks/mutations/createQuote';
+import useQuotes from 'data/hooks/queries/quotes'
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { H3 } from 'components/atoms/Typography';
+
+import s from './RatingInformation.module.css';
 
 export interface RatingInformationProps {}
 
-const QUOTES_QUERY = gql`
-  query Quotes {
-    quotes {
-      quoteId
-    }
-  }
-`
-
 const RatingInformation = (props: RatingInformationProps) => {
-  const [createQuote, { loading, error }] = useMutation(CREATE_QUOTE, {
-    update(cache, { data }) {
-      if (!data || !data.createQuote) return;
-
-      const quote = data.createQuote;
-
-      const cachedData = cache.readQuery<any>({
-        query: QUOTES_QUERY,
-      }) || { quotes: [] };
-
-      cache.writeQuery({
-        query: QUOTES_QUERY,
-        data: { quotes: [...cachedData.quotes, quote] },
-      });
-    },
-  });
+  const [createQuote, { loading, error }] = useCreateQuote();
 
   const handleCreateQuote = () => {
     return createQuote({
@@ -49,11 +29,31 @@ const RatingInformation = (props: RatingInformationProps) => {
     });
   };
 
-  console.log(loading, error)
+  const quotes = useQuotes();
 
   return (
-    <Button onClick={handleCreateQuote}>CREATE A QUOTE</Button>
-  )
+    <Grid>
+      <Row>
+        <Col xs={8}>
+          <H3>
+            Active Quotes: 
+          </H3>
+        </Col>
+        <Col xs={4} className={s.createQuoteButton}>
+          <Button onClick={handleCreateQuote}>
+            CREATE A QUOTE
+          </Button>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {quotes && quotes.map((quote: any) => (
+              <div key={quote.quoteId}>{ quote.quoteId }</div>
+          ))}
+        </Col>
+      </Row>
+    </Grid>
+  );
 };
 
 export default RatingInformation;

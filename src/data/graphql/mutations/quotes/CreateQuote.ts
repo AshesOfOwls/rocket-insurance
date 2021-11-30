@@ -1,5 +1,7 @@
 import { gql } from '@apollo/client';
 
+import QuoteFull from 'data/fragments/QuoteFull'; // eslint-disable-line
+
 const CREATE_QUOTE = gql`
   fragment QuoteInput on REST {
     ...PolicyHolder
