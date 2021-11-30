@@ -1,0 +1,13 @@
+.quotesListTable {
+  border-collapse: collapse;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.quotesListTable > thead {
+  text-align: left;
+}
+
+.quotesListTable > thead > tr > th {
+  padding-left: 10px;
+}

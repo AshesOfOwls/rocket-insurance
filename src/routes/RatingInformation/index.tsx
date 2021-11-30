@@ -4,6 +4,8 @@ import useQuotes from 'data/hooks/queries/quotes'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { H3 } from 'components/atoms/Typography';
 
+import QuotesList from './QuotesList';
+
 import s from './RatingInformation.module.css';
 
 export interface RatingInformationProps {}
@@ -46,10 +48,8 @@ const RatingInformation = (props: RatingInformationProps) => {
         </Col>
       </Row>
       <Row>
-        <Col>
-          {quotes && quotes.map((quote: any) => (
-              <div key={quote.quoteId}>{ quote.quoteId }</div>
-          ))}
+        <Col xs={12}>
+          <QuotesList quotes={quotes} />
         </Col>
       </Row>
     </Grid>
