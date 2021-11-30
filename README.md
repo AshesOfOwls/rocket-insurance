@@ -7,7 +7,7 @@ In order to run this project fully, you need a google api key.
 
 1. Obtain key at https://console.cloud.google.com/
 1. Duplicate .env_EXAMPLE to make the regular .env file
-1. Add key to `GOOGLE_API_KEY=`
+1. Add key to `REACT_APP_GOOGLE_API_KEY=xxxxxxxxxxx`
 
 ## Start the project
 
