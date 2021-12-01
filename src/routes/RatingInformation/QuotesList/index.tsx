@@ -21,6 +21,9 @@ const QuotesList = (props: QuotesListProps) => {
             <tr>
               <th></th>
               <th>Name</th>
+              <th>Address</th>
+              <th>Premium</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
