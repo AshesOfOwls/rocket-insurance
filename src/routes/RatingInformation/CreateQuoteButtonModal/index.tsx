@@ -10,8 +10,8 @@ export interface CreateQuoteButtonModalProps {}
 
 const CreateQuoteButtonModal = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
-  const [firstName, setFirstName] = useState('Jack');
-  const [lastName, setLastName] = useState('Sparrow');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [address, setAddress] = useState('');
   const [parsedAddress, setParsedAddress] = useState(null);
 
