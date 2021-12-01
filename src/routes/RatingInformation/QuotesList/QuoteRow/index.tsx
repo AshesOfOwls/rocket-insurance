@@ -37,7 +37,7 @@ const QuoteRow = (props: QuoteRowProps) => {
         <CurrencyFormat value={quote.premium} prefix="$" displayType="text" />
       </td>
       <td className={s.shrink}>
-        <Button onClick={() => navigate(`/quotes/${quote.quoteId}`)}>{quote.quoteId} Edit Quote</Button>
+        <Button onClick={() => navigate(`/quotes/${quote.quoteId}`)}>Edit Quote</Button>
       </td>
     </tr>
   )
