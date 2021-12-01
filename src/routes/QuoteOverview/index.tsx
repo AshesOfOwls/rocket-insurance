@@ -19,7 +19,7 @@ const QuoteOverview = (props: QuoteOverviewProps) => {
   const quote = useQuote(quoteId);
 
   if (!quote) return <H4>Quote Not Found</H4>;
-
+  
   const { rating_address, policy_holder, variable_options, variable_selections } = quote;
   const address = Object.values(rating_address).join(' ');
   const { first_name, last_name } = policy_holder;
@@ -27,13 +27,13 @@ const QuoteOverview = (props: QuoteOverviewProps) => {
 
   const deductibleOptions = variable_options.deductible.values.map((value: string) => ({
     value,
-    label: value,
+    label: `$${value}`,
   }));
   const activeDeductible = deductibleOptions.filter((option: any) => option.value === deductible);
 
   const asteroidCollisionOptions = variable_options.asteroid_collision.values.map((value: string) => ({
     value,
-    label: value,
+    label: `$${value}`,
   }));
   const activeCollision = asteroidCollisionOptions.filter((option: any) => option.value === asteroid_collision);
 
