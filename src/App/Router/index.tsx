@@ -5,6 +5,7 @@ import { useRoutes /*, useParams*/ } from "react-router-dom";
 import Layout from 'App/Layout';
 import Home from 'routes/Home';
 import RatingInformation from 'routes/RatingInformation';
+import QuoteOverview from 'routes/QuoteOverview';
 
 const routes: RouteObject[] = [
   {
@@ -23,6 +24,10 @@ const routes: RouteObject[] = [
         path: '/rating',
         element: <RatingInformation />,
       },
+      {
+        path: '/quotes/:quoteId',
+        element: <QuoteOverview />,
+      }
     ]
   }
 ];

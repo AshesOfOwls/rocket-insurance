@@ -1,7 +1,7 @@
 import useQuery from 'data/hooks/useQuery';
-import QUOTES_QUERY from 'data/graphql/queries/quotes';
+import QUOTES_QUERY from 'data/graphql/queries/quotes/Quotes';
 
-const useCreateQuote = () => {
+const useQuotes = () => {
   const { data, loading } = useQuery(QUOTES_QUERY, {});
 
   if (loading) return null;
@@ -10,4 +10,4 @@ const useCreateQuote = () => {
   return data.quotes || [];
 }
 
-export default useCreateQuote;
+export default useQuotes;

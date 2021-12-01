@@ -1,0 +1,9 @@
+.dataBox {
+  border: 1px solid var(--grey2);
+  border-radius: 3px;
+  padding: 10px;
+}
+
+.dataBox > h5:not(:first-child) {
+  margin-top: 15px;
+}

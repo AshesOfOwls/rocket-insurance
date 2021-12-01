@@ -2,10 +2,10 @@ import { gql } from '@apollo/client';
 
 import QuoteFull from 'data/fragments/QuoteFull'; // eslint-disable-line
 
-const QUOTES_QUERY = gql`
-  query Quotes {
-    quotes: QuoteFull
+const QUOTE_QUERY = gql`
+  query Quote {
+    quote: QuoteFull
   }
 `;
 
-export default QUOTES_QUERY;
+export default QUOTE_QUERY;
