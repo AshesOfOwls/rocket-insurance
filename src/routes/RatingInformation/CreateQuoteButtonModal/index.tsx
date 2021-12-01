@@ -71,6 +71,7 @@ const CreateQuoteButtonModal = () => {
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
             overflow: 'visible',
+            width: '50%',
           }
         }}
       >
@@ -79,11 +80,13 @@ const CreateQuoteButtonModal = () => {
           label="First Name"
           onInputChange={(e, name) => setFirstName(name)}
           value={firstName}
+          expand
         />
         <TextInput
           label="Last Name"
           onInputChange={(e, name) => setLastName(name)}
           value={lastName}
+          expand
         />
         <PlacesInput
           onSelect={(parsedAddress, addressNormal) => {

@@ -1,5 +1,6 @@
 .inputWrapper {
   margin: 3px 0 8px;
+  position: relative;
 }
 
 .input {
@@ -9,4 +10,10 @@
   border: 1px solid black;
   background: white;
   padding: 7px;
+  box-sizing: border-box;
+}
+
+.expand,
+.expand input {
+  width: 100%;
 }

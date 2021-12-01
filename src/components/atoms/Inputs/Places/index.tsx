@@ -95,6 +95,7 @@ const PlacesInput = (props: PlacesInputProps) => {
           <div>
             <TextInput
               label="Address"
+              expand
               {...getInputProps({
                 placeholder: 'Search Places ...',
               })}

@@ -9,10 +9,11 @@ export interface InputBaseProps extends InputHTMLAttributes<HTMLInputElement> {
   onInputChange?(e: React.FormEvent<HTMLInputElement>, val: string): void,
   disabled?: boolean,
   label?: string,
+  expand?: boolean,
 }
 
 const InputBase = (props: InputBaseProps) => {
-  const { value, onChange, onInputChange, type, disabled, label, ...otherProps } = props;
+  const { value, onChange, onInputChange, type, disabled, label, expand, ...otherProps } = props;
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     if(!onInputChange) return;
@@ -20,7 +21,7 @@ const InputBase = (props: InputBaseProps) => {
   };
 
   return (
-    <div className={s.inputWrapper}>
+    <div className={classnames(s.inputWrapper, { [s.expand]: expand })}>
       {label && (<InputLabel text={label} />)}
       <input
         className={classnames(s.input)}
