@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import type { RouteObject } from "react-router-dom";
-import { useRoutes /*, useParams*/ } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 
 import Layout from 'App/Layout';
 import Home from 'routes/Home';

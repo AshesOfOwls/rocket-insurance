@@ -9,14 +9,15 @@ export interface BaseTextProps {
   bold?: boolean
   uppercase?: boolean
   style?: any
+  inline?: boolean,
 }
 
 const BaseText = (props: BaseTextProps) => {
-  const { Element = 'div', children, bold, uppercase, textType = 'body', style } = props;
+  const { Element = 'div', children, bold, uppercase, textType = 'body', style, inline } = props;
 
   return (
     <Element
-      className={classnames([s[textType]], { [s.bold]: bold, [s.uppercase]: uppercase })}
+      className={classnames([s[textType]], { [s.bold]: bold, [s.uppercase]: uppercase, [s.inline]: inline })}
       style={style}
     >
       { children }

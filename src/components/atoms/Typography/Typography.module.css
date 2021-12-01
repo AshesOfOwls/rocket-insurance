@@ -50,3 +50,7 @@
 .uppercase {
   text-transform: uppercase;
 }
+
+.inline {
+  display: inline-block;
+}
