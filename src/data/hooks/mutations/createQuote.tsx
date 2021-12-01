@@ -2,7 +2,7 @@ import useMutation from 'data/hooks/useMutation';
 import CREATE_QUOTE from 'data/graphql/mutations/quotes/CreateQuote';
 import QUOTES_QUERY from 'data/graphql/queries/quotes/Quotes';
 
-const useCreateQuote = (onCompleted = () => {}) => {
+const useCreateQuote = (onCompleted: any = () => {}) => {
   const createQuote = useMutation(CREATE_QUOTE, {
     update(cache, { data }) {
       if (!data || !data.createQuote) return;

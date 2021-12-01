@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
 import useCreateQuote from 'data/hooks/mutations/createQuote';
 import Button from 'components/atoms/Button';
@@ -15,12 +16,16 @@ const CreateQuoteButtonModal = () => {
   const [address, setAddress] = useState('');
   const [parsedAddress, setParsedAddress] = useState(null);
 
+  const navigate = useNavigate();
+
   const closeModal = () => {
     setQuoteModalOpen(false);
   };
 
-  const onQuoteCreated = () => {
+  const onQuoteCreated = (response: any) => {
+    const quoteId = response.data.createQuote.quoteId;
     closeModal();
+    navigate(`/quotes/${quoteId}`);
   };
   
   const [createQuote, { loading }] = useCreateQuote(onQuoteCreated);
