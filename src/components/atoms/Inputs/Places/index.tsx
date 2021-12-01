@@ -68,7 +68,6 @@ const PlacesInput = (props: PlacesInputProps) => {
     geocodeByAddress(address).then((results) => {
       const data = results[0];
 
-      console.log(data)
       if (!data) return;
 
       const addressComponents = data.address_components;
@@ -104,14 +103,14 @@ const PlacesInput = (props: PlacesInputProps) => {
             {suggestions.length > 0 && (
               <div className={s.autocompleteDropdownContainer}>
                 {suggestions.map(suggestion => {
-                  console.log("suggestion", suggestion)
                   const className = suggestion.active
                     ? s.suggestionItemActive
                     : s.suggestionItem;
-                  // inline style for demonstration purpose
+
                   const style = suggestion.active
                     ? { backgroundColor: '#fafafa', cursor: 'pointer' }
                     : { backgroundColor: '#ffffff', cursor: 'pointer' };
+
                   return (
                     <div
                       {...getSuggestionItemProps(suggestion, {

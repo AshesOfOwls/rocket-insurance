@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { Body, H2, H3, H5, H4, Small } from 'components/atoms/Typography';
 import useQuote from "data/hooks/queries/quote";
+import useUpdateQuote from 'data/hooks/mutations/updateQuote';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import Button from 'components/atoms/Button';
 import SelectInput from "components/atoms/Inputs/Select";
 import CurrencyFormat from 'react-currency-format';
 
@@ -12,17 +12,18 @@ export interface QuoteOverviewProps {}
 
 const QuoteOverview = (props: QuoteOverviewProps) => {
   const params = useParams();
+  const [updateQuote, { loading }] = useUpdateQuote();
 
   const { quoteId } = params;
 
   const quote = useQuote(quoteId);
 
   if (!quote) return <H4>Quote Not Found</H4>;
-  
-  const address = Object.values(quote.rating_address).join(' ');
-  const { first_name, last_name } = quote.policy_holder;
-  const { deductible, asteroid_collision } = quote.variable_selections;
-  const { variable_options } = quote;
+
+  const { rating_address, policy_holder, variable_options, variable_selections } = quote;
+  const address = Object.values(rating_address).join(' ');
+  const { first_name, last_name } = policy_holder;
+  const { deductible, asteroid_collision } = variable_selections;
 
   const deductibleOptions = variable_options.deductible.values.map((value: string) => ({
     value,
@@ -36,6 +37,24 @@ const QuoteOverview = (props: QuoteOverviewProps) => {
   }));
   const activeCollision = asteroidCollisionOptions.filter((option: any) => option.value === asteroid_collision);
 
+  const handleUpdateQuote = (newValues: any) => {
+    updateQuote({
+      variables: {
+        input: {
+          quote: {
+            quoteId,
+            rating_address,
+            policy_holder,
+            variable_selections: {
+              ...variable_selections,
+              ...newValues
+            }
+          }
+        }
+      }
+    });
+  }
+  
   return (
     <Grid>
       <Row>
@@ -67,7 +86,7 @@ const QuoteOverview = (props: QuoteOverviewProps) => {
         <Col xs={6}>
           <H3 style={{ margin: '0 0 15px' }}>Update policy:</H3>
 
-          <H4 style={{ margin: '15px 0', display: 'flex', alignItems: 'center' }}>
+          <H4 style={{ margin: '15px 0', display: 'flex', alignItems: 'center' }} Element='div'>
             Premium: <H2 inline style={{ margin: '0 10px' }}><CurrencyFormat value={quote.premium} prefix="$" displayType="text" /></H2>
           </H4>
 
@@ -75,6 +94,8 @@ const QuoteOverview = (props: QuoteOverviewProps) => {
             label="Deductible"
             options={deductibleOptions}
             value={activeDeductible}
+            onChange={(selection) => { handleUpdateQuote({ deductible: selection.value }); }}
+            disabled={loading}
           />
           <Small style={{ margin: '3px 5px 20px' }}>
             { variable_options.deductible.description }
@@ -84,6 +105,8 @@ const QuoteOverview = (props: QuoteOverviewProps) => {
             label="Asteroid Collision"
             options={asteroidCollisionOptions}
             value={activeCollision}
+            onChange={(selection) => { handleUpdateQuote({ asteroid_collision: selection.value }); }}
+            disabled={loading}
           />
           <Small style={{ margin: '3px 5px 20px' }}>
             { variable_options.asteroid_collision.description }

@@ -5,11 +5,17 @@ export interface SelectInputProps {
   options: any,
   value: any,
   label: string,
+  onChange(value: any): void,
+  disabled?: boolean,
 }
 
 const SelectInput = (props: SelectInputProps) => {
-  const { options, value, label } = props;
+  const { options, value, label, onChange, disabled } = props;
 
+  const handleOnChange = (value: any) => {
+    onChange(value)
+  }
+  
   return (
     <div>
       { label && <Label text={label} /> }
@@ -17,6 +23,8 @@ const SelectInput = (props: SelectInputProps) => {
         options={options}
         isSearchable={false}
         value={value}
+        onChange={handleOnChange}
+        isDisabled={disabled}
       />
     </div>
   );
